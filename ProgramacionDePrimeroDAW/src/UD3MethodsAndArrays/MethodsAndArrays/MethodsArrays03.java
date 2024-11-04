@@ -31,13 +31,11 @@ public class MethodsArrays03 {
     public static double adverange(Scanner scanner) {
         int[] numbers = askArray(scanner);
         int sum = 0;
-        int counter = 0;
 
         for (int number : numbers) {
             sum += number;
-            counter++;
         }
-        return (double) sum / counter;
+        return (double) sum / numbers.length;
     }
 
     public static void printResult(Scanner scanner) {
