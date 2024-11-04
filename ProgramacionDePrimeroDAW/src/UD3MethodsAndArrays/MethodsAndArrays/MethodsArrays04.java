@@ -1,0 +1,92 @@
+package UD3MethodsAndArrays.MethodsAndArrays;
+
+import java.util.Scanner;
+
+public class MethodsArrays04 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] firstArray = askArray(scanner);
+        int[] firstInverted = invertArray(firstArray);
+        printArray(firstInverted);
+
+        int[] secondArray = askArray(scanner);
+        int[] secondInverted = invertArray(secondArray);
+        printArray(secondInverted);
+
+        int[] joined = joinArrays(firstInverted, secondInverted);
+        printArray(joined);
+
+    }
+
+    public static int[] askArray(Scanner scanner) {
+        int size;
+
+        do {
+            System.out.println("¿Cuantos números quiere ingresar?");
+            size = scanner.nextInt();
+            scanner.nextLine();
+        } while (size <= 0);
+
+        int[] numbers = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            System.out.println("Ingrese un número");
+            System.out.println("Le quedan " + (size - i) + " espacios.");
+            numbers[i] = scanner.nextInt();
+        }
+
+        return numbers;
+    }
+
+    public static int[] invertArray(int[] array){
+        int size = 0;
+
+        for(int number: array){
+            size++;
+        }
+
+        int[] reversed = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            reversed[i] = array[size - i];
+        }
+
+        return reversed;
+    }
+
+    public static int[] joinArrays(int[] firstArray, int[] secondArray){
+        int firstSize = 0;
+        int secondSize = 0;
+
+        for(int first: firstArray){
+            firstSize++;
+        }
+        for(int second: secondArray){
+            secondSize++;
+        }
+
+        int[] joined = new int[firstSize+secondSize];
+
+        for (int i = 0; i < firstSize; i++) {
+            joined[i] = firstArray[i];
+        }
+        for (int i = 0; i < (firstSize+secondSize); i++) {
+            joined[firstSize+i] = secondArray[i];
+        }
+
+        return joined;
+    }
+
+    public static void printArray(int[] array){
+        int size = 0;
+
+        for (int number: array){
+            size++;
+        }
+
+        for (int i = 0; i < size; i++) {
+            System.out.println("posición " + i + " es " + array[i]);
+        }
+    }
+}
