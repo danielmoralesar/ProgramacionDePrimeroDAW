@@ -6,6 +6,8 @@ public class Menu02 {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        System.out.println("¡Bienvenido!");
+        loop();
     }
 
     public static int askNumber() {
@@ -42,5 +44,45 @@ public class Menu02 {
             group[i] = group[i]*2;
         }
         return group;
+    }
+
+    public static int askOption(){
+        System.out.println("Elija una opción:");
+        System.out.println("1. Sumar un grupo de números");
+        System.out.println("2. Duplicar el valor de un grupo de números");
+        System.out.println("3. Salir del programa");
+        int option = scanner.nextInt();
+        scanner.nextLine();
+        return option;
+    }
+
+    public static void firstOperation(){
+        System.out.println("el resultado es: " + sumNumbers(askGroup()));
+    }
+
+    public static void secondOperation(){
+        int[] numbers = doubleNumbers(askGroup());
+
+        System.out.println("El resultado es:");
+        for(int number: numbers){
+            System.out.print(number + ", ");
+        }
+        System.out.println(" ");
+    }
+
+    public static void loop(){
+        int choice;
+        do{
+            choice = askOption();
+            if (choice == 1){
+                firstOperation();
+            } else if (choice == 2) {
+                secondOperation();
+            } else if (choice == 3) {
+                System.out.println("¡Hasta luego!");
+            } else {
+                System.out.println("Operación no válida");
+            }
+        }while (choice != 3);
     }
 }
