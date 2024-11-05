@@ -42,37 +42,30 @@ public class MethodsArrays04 {
         return numbers;
     }
 
-    public static int[] invertArray(int[] array){
-        int size = array.length;
+    public static int[] invertArray(int[] array) {
+        int[] reversed = new int[array.length];
 
-        int[] reversed = new int[size];
-
-        for (int i = 0; i < size; i++) {
-            reversed[i] = array[(size - i - 1)];
+        for (int i = 0; i < array.length; i++) {
+            reversed[i] = array[(array.length - i - 1)];
         }
 
         return reversed;
     }
 
-    public static int[] joinArrays(int[] firstArray, int[] secondArray){
-        int firstSize = firstArray.length;
-        int secondSize = secondArray.length;
+    public static int[] joinArrays(int[] firstArray, int[] secondArray) {
+        int[] joined = new int[(firstArray.length + secondArray.length)];
 
-        int[] joined = new int[firstSize+secondSize];
-
-        for (int i = 0; i < firstSize; i++) {
+        for (int i = 0; i < firstArray.length; i++) {
             joined[i] = firstArray[i];
         }
-        for (int i = 0; i < secondSize; i++) {
-            joined[i+firstSize] = secondArray[i];
+        for (int i = 0; i < secondArray.length; i++) {
+            joined[i + firstArray.length] = secondArray[i];
         }
         return joined;
     }
 
-    public static void printArray(int[] array){
-        int size = array.length;
-
-        for (int i = 0; i < size; i++) {
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
             System.out.println("posición " + i + " es " + array[i]);
         }
     }
